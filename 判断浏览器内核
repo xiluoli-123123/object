@@ -1,0 +1,55 @@
+<script>
+        //获取当前浏览器类型
+            //myBrowser() start
+            function GetCurrentBrowser() {
+                //取得浏览器的userAgent字符串
+                var userAgent = navigator.userAgent.toLocaleLowerCase();
+                var isChrome = userAgent.indexOf("chrome") > -1; //判断是否谷歌浏览器
+                var isOpera = userAgent.indexOf("opera") > -1; //判断是否Opera浏览器
+                var isIE = userAgent.match(/msie/) != null || userAgent.match(/trident/) != null;//userAgent.indexOf("compatible") > -1 && userAgent.indexOf("msie") > -1 && !isOpera; //判断是否IE浏览器
+                var isFF = userAgent.indexOf("firefox") > -1; //判断是否Firefox浏览器
+                var isSafari = userAgent.indexOf("safari") > -1; //判断是否Safari浏览器	
+                if (isIE) {
+                    var IE5 = IE55 = IE6 = IE7 = IE8 = IE9 = IE11 = false;
+                    /*
+                      var reIE = new RegExp("msie (\\d+\\.\\d+);");
+                      reIE.test(userAgent);
+                      var fIEVersion = parseFloat(RegExp["$1"]);
+                    */
+                    var fIEVersion = userAgent.match(/msie ([\d.]+)/) != null ? userAgent.match(/msie ([\d.]+)/)[1] : userAgent.match(/rv:([\d.]+)/)[1];
+                    IE55 = fIEVersion == 5.5;
+                    IE6 = fIEVersion == 6.0;
+                    IE7 = fIEVersion == 7.0;
+                    IE8 = fIEVersion == 8.0;
+                    IE9 = fIEVersion == 9.0;
+                    IE11 = fIEVersion == 11.0;
+                    if (IE55) {
+                        return "IE55";
+                    }
+                    if (IE6) {
+                        return "IE6";
+                    }
+                    if (IE7) {
+                        return "IE7";
+                    }
+                    if (IE8) {
+                        return "IE8";
+                    }
+                    if (IE9) {
+                        return "IE9";
+                    }
+                    if (IE11) {
+                        return "IE11";
+                    }
+                }//isIE end
+                if (isFF) {
+                    return "Firefox";
+                }
+                if (isOpera) {
+                    return "Opera";
+                }
+                if (isChrome) {
+                    return "Chrome";
+                }
+            }//myBrowser() end
+</script>
