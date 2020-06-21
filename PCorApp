@@ -1,0 +1,19 @@
+<script>
+    var nu = navigator.userAgent
+    var arr = ['phone', ' pad', ' pod', 'iPhone', ' iPod', 'ios', 'iPad', 'Android', 'Mobile', 'BlackBerry', ' IEMobile', 'MQQBrowser', 'JUC', ' Fennec', 'wOSBrowser', 'BrowserNG', 'WebOS', 'Symbian', 'WindowsPhone']
+    function style() {
+        arr.forEach(function (item, index) {
+            if (nu.indexOf(item) != -1) {
+               flag=false
+            } else {
+                flag=true
+            }
+        })
+        if (flag=true) {
+            alert("pc")
+        } else {
+            alert("APP")
+        }
+    }
+    style()
+</script>
